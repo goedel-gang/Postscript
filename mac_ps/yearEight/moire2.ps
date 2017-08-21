@@ -1,0 +1,66 @@
+%!PS-3.0
+
+%%BoundingBox: 1 1 1189 841
+%%DocumentMedia: A3land 1190 842 0 () ()
+%%EndComments
+%%BeginFeature: *PageSize A3
+<< /PageSize [1190 842] /Orientation 0 >> setpagedevice
+%%EndFeature
+
+2.83464567 dup scale
+
+newpath
+5 5 moveto
+410 0 rlineto
+0 287 rlineto
+-410 0 rlineto
+closepath clip newpath
+
+/height 297.039 def
+/width 419.806 def
+
+
+width 0.5 mul height 0.5 mul translate
+
+/kirkle
+{
+
+/y exch def
+/x exch def
+/stap exch def
+/radius exch def
+/repet radius 2 div def
+
+0 1 repet
+{
+pop
+
+x y radius 0 360 arc stroke
+
+radius 0 gt
+{
+
+/radius radius stap sub def
+
+} if
+
+} for
+
+} def
+
+% radius stapgroote x y coordinaat van centrum kirkle
+
+/myrad 300 def
+/myd 5 def
+
+/sqrt3h 3 sqrt 2 div def
+
+1 setlinewidth
+
+myrad 3 myd neg 0 kirkle
+
+myrad 3 myd 0 kirkle
+
+% myrad 2 0 80 sqrt3h mul kirkle
+
+showpage

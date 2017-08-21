@@ -1,0 +1,83 @@
+%!PS-3.0
+
+%%BoundingBox: 1 1 594 841
+%%DocumentMedia: A4 595 842 0 () ()
+%%EndComments
+%%BeginFeature: *PageSize A4
+<< /PageSize [595 842] >> setpagedevice
+%%EndFeature
+
+28.3464567 dup scale
+
+newpath
+0.5 0.5 moveto
+20.5 0.5 lineto
+20.5 29.2 lineto
+0.5 29.2 lineto
+closepath 
+clip 
+
+/height 29.7039 def
+/width 20.9903 def
+
+width 0.5 mul height 0.5 mul translate
+
+0.02  setlinewidth
+
+/totaldepth 3 def
+
+/sierpinski {
+4 dict begin
+
+	/depth exch def
+	/base exch def
+	/ly exch def
+	/lx exch def
+
+	depth totaldepth eq {
+		newpath
+		lx ly moveto
+		lx base add ly lineto
+		lx base add ly base add lineto
+		lx ly base add lineto
+		closepath 0 setgray fill 1 setgray
+	} if
+
+	newpath
+	lx base 3 div 1 mul add ly base 3 div 1 mul add moveto
+	lx base 3 div 1 mul add ly base 3 div 2 mul add lineto
+	lx base 3 div 2 mul add ly base 3 div 2 mul add lineto
+	lx base 3 div 2 mul add ly base 3 div 1 mul add lineto
+	closepath fill
+
+	depth 0 eq not {
+		lx base 3 div 0 mul add ly base 3 div 0 mul add base 3 div depth 1 sub sierpinski
+		lx base 3 div 1 mul add ly base 3 div 0 mul add base 3 div depth 1 sub sierpinski
+		lx base 3 div 2 mul add ly base 3 div 0 mul add base 3 div depth 1 sub sierpinski
+
+		lx base 3 div 0 mul add ly base 3 div 1 mul add base 3 div depth 1 sub sierpinski
+%		lx base 3 div 1 mul add ly base 3 div 1 mul add base 3 div depth 1 sub sierpinski
+		lx base 3 div 2 mul add ly base 3 div 1 mul add base 3 div depth 1 sub sierpinski
+
+		lx base 3 div 0 mul add ly base 3 div 2 mul add base 3 div depth 1 sub sierpinski
+		lx base 3 div 1 mul add ly base 3 div 2 mul add base 3 div depth 1 sub sierpinski
+		lx base 3 div 2 mul add ly base 3 div 2 mul add base 3 div depth 1 sub sierpinski
+	} if
+
+end
+} def
+
+
+30 rotate
+
+0 1 2 {
+	120 rotate
+
+	gsave
+	[1 0 35 sin 1 0 0] concat
+	2 3 sqrt div 1 scale
+	0 -5 5 totaldepth sierpinski
+	grestore
+} for
+
+showpage

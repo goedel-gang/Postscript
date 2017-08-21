@@ -1,0 +1,60 @@
+%!PS-3.0
+
+%%BoundingBox: 1 1 1189 841
+%%DocumentMedia: A3land 1190 842 0 () ()
+%%EndComments
+%%BeginFeature: *PageSize A3
+<< /PageSize [1190 842] /Orientation 0 >> setpagedevice
+%%EndFeature
+
+2.83464567 dup scale
+
+newpath
+5 5 moveto
+410 0 rlineto
+0 287 rlineto
+-410 0 rlineto
+closepath clip newpath
+
+/height 297.039 def
+/width 419.806 def
+
+
+width 0.5 mul height 0.5 mul translate
+
+/ircle
+{
+
+/radius exch def
+/distance exch def
+/fatness exch def
+/y exch def
+/x exch def
+
+
+/repeats 360 fatness distance add div def
+
+0 1 repeats
+{
+
+/a exch def
+
+newpath
+
+x y moveto
+currentpoint radius a distance fatness add mul a distance fatness add mul fatness add arc 
+
+fill
+
+
+} for
+
+} def
+
+% xy of center fatness distance radius ircle
+
+-40 0 0.25 dup 120 ircle
+
+40 0 0.25 dup 120 ircle
+
+showpage

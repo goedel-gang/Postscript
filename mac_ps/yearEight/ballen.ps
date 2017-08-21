@@ -1,0 +1,87 @@
+%!PS-3.0
+
+%%BoundingBox: 1 1 594 841
+%%DocumentMedia: A4 595 842 0 () ()
+%%EndComments
+%%BeginFeature: *PageSize A4
+<< /PageSize [595 842] >> setpagedevice
+%%EndFeature
+
+28.3464567 dup scale
+
+newpath
+0.5 0.5 moveto
+20.5 0.5 lineto
+20.5 29.2 lineto
+0.5 29.2 lineto
+closepath clip newpath
+
+/height 29.7039 def
+/width 20.9903 def
+
+width 0.5 mul height 0.5 mul 
+
+0.02  setlinewidth
+
+/radius 1 def
+/a 0 def
+/b 0 def
+/ding radius def
+/hite 3 sqrt 2 mul radius mul
+
+gsave
+
+/circle
+{
+a b radius 0 360 arc fill
+} def
+
+
+/quality 100 def
+
+/bal
+{
+0 1 quality
+{
+
+/x exch 100 div def
+
+gsave
+
+/radius radius ding quality div sub def
+/a a ding quality 2 mul div sub def
+/b b ding quality 2 mul div add def
+
+x setgray
+circle
+grestore
+}
+for
+
+/radius ding def
+/a 0 def
+/b 0 def
+
+} def
+
+
+/floop 6 radius div def
+
+floop neg 1 floop
+{
+
+/x exch def
+
+gsave
+
+x 2 radius mul mul 0 translate
+
+bal
+
+grestore
+
+} for
+
+
+
+showpage

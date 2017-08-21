@@ -1,0 +1,112 @@
+%!PS-3.0
+
+%%BoundingBox: 1 1 594 841
+%%DocumentMedia: A4 595 842 0 () ()
+%%EndComments
+%%BeginFeature: *PageSize A4
+<< /PageSize [595 842] >> setpagedevice
+%%EndFeature
+
+28.3464567 dup scale
+
+newpath
+0.5 0.5 moveto
+20.5 0.5 lineto
+20.5 29.2 lineto
+0.5 29.2 lineto
+closepath clip newpath
+
+/height 29.7039 def
+/width 20.9903 def
+
+width 0.5 mul height 0.5 mul translate
+
+0.02  setlinewidth
+
+/radius 1 def
+/v3h 3 sqrt 2 div def
+
+
+/rondhoek
+{
+0 0 radius 0 60 arc stroke
+0 0 radius 120 180 arc stroke
+0 0 radius 240 300 arc stroke
+
+-1 radius mul 2 div -1 v3h mul radius mul radius 0 60 arc stroke
+radius 2 div -1 v3h mul radius mul radius 120 180 arc stroke
+radius 0 radius 120 180 arc stroke
+radius 2 div v3h radius mul radius 240 300 arc stroke
+-1 radius mul 2 div v3h radius mul radius 240 300 arc stroke
+-1 radius mul 0 radius 0 60 arc stroke
+} def
+
+/quant 10 radius div def		%forloop stuff
+
+/stuk
+{
+-1 quant mul 1 quant
+{
+/x exch def
+-1 quant mul 1 quant
+{
+/y exch def
+gsave
+x 3 mul radius mul y 2 mul v3h mul radius mul translate
+rondhoek
+grestore
+}
+for
+}
+for
+
+-1.5 radius mul -1 v3h mul radius mul translate
+
+-1 quant mul 1 quant
+{
+/x exch def
+-1 quant mul 1 quant
+{
+/y exch def
+gsave
+x 3 mul radius mul y 2 mul v3h mul radius mul translate
+rondhoek
+grestore
+}
+for
+}
+for
+} def
+
+/radius 2 def
+
+	%0.5 setlinewidth
+	%0.0 setgray
+	%stuk
+
+	%0.35 setlinewidth
+	%1.0 setgray
+	%stuk
+
+	%0.2 setlinewidth
+	%0.0 setgray
+	%stuk
+
+	%0.025 setlinewidth
+	%1.0 setgray
+	%stuk
+
+1.2 setlinewidth
+0 0 1 setrgbcolor
+stuk
+
+0.8 setlinewidth
+0 1 0 setrgbcolor
+stuk
+
+0.2 setlinewidth
+1 0 0 setrgbcolor
+stuk
+
+showpage
+

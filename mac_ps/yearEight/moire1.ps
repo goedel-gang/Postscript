@@ -1,0 +1,77 @@
+%!PS-3.0
+
+%%BoundingBox: 1 1 1189 841
+%%DocumentMedia: A3land 1190 842 0 () ()
+%%EndComments
+%%BeginFeature: *PageSize A3
+<< /PageSize [1190 842] /Orientation 0 >> setpagedevice
+%%EndFeature
+
+2.83464567 dup scale
+
+newpath
+5 5 moveto
+410 0 rlineto
+0 287 rlineto
+-410 0 rlineto
+closepath clip newpath
+
+/height 297.039 def
+/width 419.806 def
+
+
+width 0.5 mul height 0.5 mul translate
+
+0.04 setlinewidth
+
+
+/grid
+{
+/b exch def
+/a exch def
+
+/quant1 200 b div def
+
+/quant2 200 a div def
+
+quant2 neg 1 quant2
+{
+
+/y exch def
+
+a y mul height 2 div neg moveto
+a y mul height 2 div lineto
+
+} for
+
+
+quant1 neg 1 quant1
+{
+
+/x exch def
+
+width 2 div neg b x mul moveto
+width 2 div b x mul lineto stroke
+
+} for
+
+
+} def
+
+
+
+1.2 setlinewidth
+
+
+4 4 grid
+
+0 0 translate 1 rotate
+
+4 4 grid
+
+0 0 translate -3 rotate
+
+4.1 4.1 grid
+
+
+showpage

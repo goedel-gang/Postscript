@@ -1,0 +1,69 @@
+%!PS-3.0
+
+%%BoundingBox: 1 1 594 841
+%%DocumentMedia: A4 595 842 0 () ()
+%%EndComments
+%%BeginFeature: *PageSize A4
+<< /PageSize [595 842] >> setpagedevice
+%%EndFeature
+
+28.3464567 dup scale
+
+newpath
+0.5 0.5 moveto
+20.5 0.5 lineto
+20.5 29.2 lineto
+0.5 29.2 lineto
+closepath clip newpath
+
+/height 29.7039 def
+/width 20.9903 def
+
+width 0.5 mul height 0.5 mul translate
+
+0.02  setlinewidth
+
+1 0 0  setrgbcolor
+
+
+%newpath
+%-5 0 moveto
+%0 3 sqrt 5 mul lineto
+%5 0 lineto
+%closepath fill
+%
+%0 0 0 setrgbcolor
+%
+%newpath
+%0 0 moveto
+%-2.5 3 sqrt 5 mul 2 div lineto
+%2.5 3 sqrt 5 mul 2 div lineto
+%closepath fill
+
+/triangle {
+	/base exch def
+	/cornery exch def
+	/cornerx exch def
+
+	newpath
+	cornerx cornery moveto
+	cornerx base 2 div neg add cornery base 3 sqrt mul 2 div add lineto
+	cornerx base 2 div     add cornery base 3 sqrt mul 2 div add lineto
+	closepath
+	fill
+
+} def
+
+%0 0 5 triangle
+%
+%2.5 0 2.5 triangle
+
+0 1 10 {
+	/i exch def
+
+	5 5 2 i exp div sub 0 5 2 i exp div triangle
+	
+} for
+
+
+showpage

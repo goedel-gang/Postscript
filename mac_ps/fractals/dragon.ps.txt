@@ -1,0 +1,72 @@
+%!PS-3.0
+
+%%BoundingBox: 1 1 594 841
+%%DocumentMedia: A4 595 842 0 () ()
+%%EndComments
+%%BeginFeature: *PageSize A4
+<< /PageSize [595 842] >> setpagedevice
+%%EndFeature
+
+28.3464567 dup scale
+
+newpath
+0.5 0.5 moveto
+20.5 0.5 lineto
+20.5 29.2 lineto
+0.5 29.2 lineto
+closepath
+
+gsave
+0 setgray fill
+grestore
+
+clip
+
+/height 29.7039 def
+/width 20.9903 def
+
+width 0.5 mul height 0.5 mul translate
+
+/Times-Roman findfont
+5 scalefont
+setfont
+
+0.0002  setlinewidth
+
+1 setgray
+
+/dragon {
+1 dict begin
+	
+	/depth exch def
+
+	depth 0 eq {
+		newpath
+		0 0 moveto
+		1 0 lineto
+		stroke
+	} {
+		gsave
+		0.5 1 4 div sqrt translate
+		315 rotate
+		1 2 sqrt div dup scale
+		depth 1 sub dragon
+		grestore
+		
+		gsave
+		0.5 1 4 div sqrt translate
+		225 rotate
+		1 2 sqrt div dup scale
+		depth 1 sub dragon
+		grestore
+	} ifelse
+
+end
+} def
+
+-5 0 translate
+10 10 scale
+15 dragon
+	
+
+showpage

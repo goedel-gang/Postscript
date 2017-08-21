@@ -1,0 +1,82 @@
+%!PS-3.0
+
+%%BoundingBox: 1 1 594 841
+%%DocumentMedia: A4 595 842 0 () ()
+%%EndComments
+%%BeginFeature: *PageSize A4
+<< /PageSize [595 842] >> setpagedevice
+%%EndFeature
+
+28.3464567 dup scale
+
+newpath
+0.5 0.5 moveto
+20.5 0.5 lineto
+20.5 29.2 lineto
+0.5 29.2 lineto
+closepath clip newpath
+
+/height 29.7039 def
+/width 20.9903 def
+
+
+width 0.5 mul height 0.5 mul translate
+
+/base 17 def
+/depth 1 def
+
+/v3h 0.75 sqrt def
+/base base 2 depth exp div def
+
+base 2 div neg v3h base mul 3 div neg translate
+
+/sierp
+{
+
+newpath
+
+0 0 moveto
+base 0 lineto
+base 2 div v3h base mul lineto closepath fill
+
+} def
+
+
+0 1 depth
+{
+
+/x exch def
+
+/sierp
+{
+
+sierp
+
+gsave
+
+base 0 translate
+
+sierp
+
+grestore
+
+gsave
+
+base 2 div v3h base mul 2 div translate
+
+sierp
+
+grestore
+
+
+
+} def
+
+/base base 2 mul def
+
+} for
+
+sierp
+
+
+showpage

@@ -1,0 +1,56 @@
+%!PS-3.0
+
+%%BoundingBox: 1 1 594 841
+%%DocumentMedia: A4 595 842 0 () ()
+%%EndComments
+%%BeginFeature: *PageSize A4
+<< /PageSize [595 842] >> setpagedevice
+%%EndFeature
+
+28.3464567 dup scale
+
+newpath
+0.5 0.5 moveto
+20.5 0.5 lineto
+20.5 29.2 lineto
+0.5 29.2 lineto
+closepath clip newpath
+
+/height 29.7039 def
+/width 20.9903 def
+
+
+width 0.5 mul height 0.5 mul translate
+
+0.05  setlinewidth
+
+/base 20 def
+/hite 3 sqrt 2 div base mul def
+/blue 1 def
+/quality 50 def
+
+/triangle
+{
+newpath
+base 2 div neg hite 2 div neg moveto
+base 2 div hite 2 div neg lineto
+0 hite 2 div lineto
+closepath
+gsave
+0 setgray
+stroke
+grestore
+0 0 blue setrgbcolor
+fill
+} def
+
+0 1 quality
+{
+triangle
+/blue blue 0.08 sub def
+0 0 translate 170 20 div rotate
+0.7 0.7 scale
+
+} for
+
+showpage

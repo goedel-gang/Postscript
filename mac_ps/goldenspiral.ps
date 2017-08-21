@@ -1,0 +1,94 @@
+%!PS-3.0
+
+%%BoundingBox: 1 1 594 841
+%%DocumentMedia: A4 595 842 0 () ()
+%%EndComments
+%%BeginFeature: *PageSize A4
+<< /PageSize [595 842] >> setpagedevice
+%%EndFeature
+
+28.3464567 dup scale
+
+newpath
+0.5 0.5 moveto
+20.5 0.5 lineto
+20.5 29.2 lineto
+0.5 29.2 lineto
+closepath
+
+gsave
+0 setgray fill
+grestore
+
+clip
+
+/height 29.7039 def
+/width 20.9903 def
+
+width 0.5 mul height 0.5 mul translate
+
+/Times-Roman findfont
+1 scalefont
+setfont
+
+1 setgray
+
+0.02  setlinewidth
+
+/spiral {
+    /size exch def
+
+    /a 0 def
+    /b 1 def
+    
+    gsave
+    newpath
+
+    -1 0 translate
+
+    0 1 size {
+        /i exch def
+
+        0 0 b 0 90 arc
+        
+        0 a neg translate
+        90 rotate
+        
+        /b a b add def
+        /a b a sub def
+
+    } for
+
+    stroke
+    grestore
+
+} def
+
+0.9 0.9 scale
+
+gsave
+
+0 1 13 {
+    /i exch def
+    360 13 div rotate
+
+    6 spiral
+} for
+
+grestore
+
+
+gsave
+
+-1 1 scale
+
+0 1 13 {
+    /i exch def
+    360 13 div rotate
+
+    6 spiral
+} for
+
+grestore
+
+showpage

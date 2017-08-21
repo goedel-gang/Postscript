@@ -1,0 +1,64 @@
+%!PS-3.0
+
+%%BoundingBox: 1 1 594 841
+%%DocumentMedia: A4 595 842 0 () ()
+%%EndComments
+%%BeginFeature: *PageSize A4
+<< /PageSize [595 842] >> setpagedevice
+%%EndFeature
+
+28.3464567 dup scale
+
+newpath
+0.5 0.5 moveto
+20.5 0.5 lineto
+20.5 29.2 lineto
+0.5 29.2 lineto
+closepath clip
+
+/height 29.7039 def
+/width 20.9903 def
+
+width 0.5 mul height 0.5 mul translate
+
+/branchscale 0.9 def
+/totaldepth 13 def
+
+/tree {
+1 dict begin
+
+	/depth exch def
+
+	depth totaldepth div 5 div setlinewidth
+
+	newpath
+	0 0 moveto
+	0 1 lineto stroke
+
+	depth 0 eq not {
+		gsave
+		0 1 translate
+		10 rotate
+		branchscale dup scale
+		depth 1 sub
+		tree
+		grestore
+
+		gsave
+		0 1 translate
+		350 rotate
+		branchscale dup scale
+		depth 1 sub
+		tree
+		grestore
+
+	} if
+
+end
+} def
+
+0 -10 translate
+2 dup scale
+totaldepth tree
+
+showpage

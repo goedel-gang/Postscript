@@ -1,0 +1,86 @@
+%!PS-3.0
+
+%%BoundingBox: 1 1 594 841
+%%DocumentMedia: A4 595 842 0 () ()
+%%EndComments
+%%BeginFeature: *PageSize A4
+<< /PageSize [595 842] >> setpagedevice
+%%EndFeature
+
+28.3464567 dup scale
+
+newpath
+0.5 0.5 moveto
+20.5 0.5 lineto
+20.5 29.2 lineto
+0.5 29.2 lineto
+closepath clip newpath
+
+/height 29.7039 def
+/width 20.9903 def
+
+width 0.5 mul height 0.5 mul translate
+
+2 setlinejoin
+0.0 setgray
+
+
+/sides 8 def
+/num 50 def
+/startbase 8 def
+/startlinewidth 0.02 def
+/autowidth 0 def	 		%set to 0 for automatic line width
+/autobase 0 def				%set to 0 for recommended base
+/startingr 10 def			%ideal starting radius, 10
+
+startlinewidth setlinewidth
+
+/ctrangle 360 sides div def
+/intangle 180 ctrangle sub def
+/base startbase def
+
+autobase 0 eq {
+	/base startingr ctrangle 2 div cos 2 mul mul def
+	/startbase base def
+	} if
+
+/polygon {
+   newpath
+   /r base 2 div intangle 2 div sin div def  %/r 5 def
+
+   r 0 moveto
+   1 1 sides 1 sub {
+
+      /b exch def
+      /h 360 sides div b mul def
+      r h cos mul r h sin mul lineto
+
+   } for
+   closepath
+   stroke
+} def
+
+
+
+num {
+                      % c = sqrt [ a^2 + b^2 - 2ab cos(intangle) ]
+	              % where a and b are both 0.5 * base
+   polygon
+
+   /base base 0.5 mul     % 1
+   2 exp 2 mul            % 1
+   0.5 base base mul mul  % 2 (2ab)
+   intangle cos mul       % 2
+   sub sqrt               % 2
+   def
+
+autowidth 0 eq {
+	base startbase startlinewidth div div setlinewidth
+	} if
+
+   360 sides div 2 div rotate
+} repeat
+
+
+
+showpage

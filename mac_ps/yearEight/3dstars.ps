@@ -1,0 +1,94 @@
+%!PS-3.0
+
+%%BoundingBox: 1 1 594 841
+%%DocumentMedia: A4 595 842 0 () ()
+%%EndComments
+%%BeginFeature: *PageSize A4
+<< /PageSize [595 842] >> setpagedevice
+%%EndFeature
+
+28.3464567 dup scale
+
+newpath
+0.5 0.5 moveto
+20.5 0.5 lineto
+20.5 29.2 lineto
+0.5 29.2 lineto
+closepath clip newpath
+
+/height 29.7039 def
+/width 20.9903 def
+
+width 0.5 mul height 0.5 mul translate
+
+0.02  setlinewidth
+
+/base 1 def
+/hiteh 3 sqrt 0.5 mul base mul def
+
+/tird
+{
+0 0 moveto
+0 base 2 div lineto
+-1 hiteh mul 0 lineto
+stroke
+} def
+
+/stuk
+{
+tird
+0 0 translate 120 rotate
+tird
+0 0 translate 120 rotate
+tird
+0 0 translate 120 rotate
+} def
+
+/quant 10 base div def
+
+/floop
+{
+-1 quant mul 1 quant
+{
+/y exch def
+-1 quant mul 1 quant
+{
+/x exch def
+
+gsave
+
+%x floor cvi 2 mod 1 eq
+%{
+%0 0 translate 120 rotate
+%}
+%if
+
+1.5 hiteh x mul mul 3 base y mul mul translate
+stuk
+
+grestore
+
+%x floor cvi 2 mod 1 eq
+%{
+%0 0 translate -120 rotate
+%}
+%if
+
+}
+for
+}
+for
+} def
+
+floop
+
+hiteh base 1.5 mul -1 mul translate
+
+1 -1 scale
+floop
+
+%0 0 moveto
+%0.1 setlinewidth
+%stuk
+
+showpage

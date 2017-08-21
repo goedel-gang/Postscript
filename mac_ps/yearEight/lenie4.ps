@@ -1,0 +1,113 @@
+%!PS-3.0
+
+%%BoundingBox: 1 1 594 841
+%%DocumentMedia: A4 595 842 0 () ()
+%%EndComments
+%%BeginFeature: *PageSize A4
+<< /PageSize [595 842] >> setpagedevice
+%%EndFeature
+
+28.3464567 28.3464567 scale
+
+newpath
+0.5 0.5 moveto
+9.5 0.5 lineto
+9.5 9.2 lineto
+0.5 9.2 lineto
+closepath clip newpath
+
+/height 29.7039 def
+/width 20.9903 def
+
+width 0.5 mul height 0.5 mul translate
+
+0.02 setlinewidth
+
+/dding
+{
+
+/gu         2     def       % length of triangle side.
+/guh        { gu 0.5 mul } bind def
+/angle      0     def       % angle with baseline.
+                            % 0 makes normal baseline a direction of grid,
+                            % 30 makes vertical a direction of grid.
+
+
+/step gu 0.866025 mul def     % that's 1/2 * sqrt(3)
+
+angle rotate
+
+3
+{  -18.3 step div floor step mul     % make sure we hit the origin, i.e. (0,0).
+   step
+   18.3
+   {  -18.3 exch moveto 36.6 0 rlineto
+   }
+   for
+   120 rotate
+}
+repeat
+
+stroke
+
+% (fill) [0 0 0] [0 0] 0.2 proc_circle
+
+
+/proc_oneline {
+   2 3 div dup scale
+   1 0 moveto
+   2 step lineto stroke
+} def
+
+
+/proc_threeline {
+   gsave
+   0 0 translate proc_oneline
+   grestore
+   gsave
+   1.0 step translate -120 rotate
+       % (fill) [0 0 0] [0 0] 0.1 proc_circle
+       proc_oneline
+   grestore
+   gsave
+   2 0 translate 120 rotate
+      proc_oneline
+   grestore
+} def
+
+
+1 1 2
+{
+0 1 11
+{
+/i exch def
+   -10 1 10
+   {  /j exch def
+      gsave
+      i 2 mul -12 add j 2 mod add guh mul step 2 j add mul translate
+      proc_threeline
+      grestore
+   }
+   for
+}
+for
+
+180 rotate
+}
+for
+
+} def
+
+0.2 setlinewidth
+0.0 setgray
+dding
+
+0.1 setlinewidth
+0.5 setgray
+dding
+
+0.05 setlinewidth
+1.0 setgray
+dding
+
+showpage

@@ -1,0 +1,69 @@
+%!PS-3.0
+
+%%BoundingBox: 1 1 594 841
+%%DocumentMedia: A4 595 842 0 () ()
+%%EndComments
+%%BeginFeature: *PageSize A4
+<< /PageSize [595 842] >> setpagedevice
+%%EndFeature
+
+28.3464567 dup scale
+
+newpath
+0.5 0.5 moveto
+20.5 0.5 lineto
+20.5 29.2 lineto
+0.5 29.2 lineto
+closepath gsave
+clip grestore
+0 setgray fill
+
+/height 29.7039 def
+/width 20.9903 def
+
+width 0.5 mul height 0.5 mul translate
+
+0.02  setlinewidth
+
+/mass {
+9 dict begin
+	
+	/depth exch def
+	/y3 exch def
+	/x3 exch def
+	/y2 exch def
+	/x2 exch def
+	/y1 exch def
+	/x1 exch def
+
+	/cx x1 x2 x3 add add 3 div def
+	/cy y1 y2 y3 add add 3 div def
+
+	newpath
+	x1 y1 moveto
+	cx cy lineto stroke
+
+	newpath
+	x2 y2 moveto
+	cx cy lineto stroke
+
+	newpath
+	x3 y3 moveto
+	cx cy lineto stroke
+
+	depth 0 eq not {
+		x1 y1 x2 y2 cx cy depth 1 sub mass
+		x1 y1 x3 y3 cx cy depth 1 sub mass
+		x3 y3 x2 y2 cx cy depth 1 sub mass
+	} if
+
+end
+} def
+
+0 1 0 setrgbcolor
+0.001 setlinewidth
+
+-10 -5 10 -5 0 20 3 sqrt 2 div mul 5 sub 5 mass
+
+
+showpage

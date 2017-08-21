@@ -1,0 +1,69 @@
+%!PS-3.0
+
+%%BoundingBox: 1 1 594 841
+%%DocumentMedia: A4 595 842 0 () ()
+%%EndComments
+%%BeginFeature: *PageSize A4
+<< /PageSize [595 842] >> setpagedevice
+%%EndFeature
+
+28.3464567 dup scale
+
+newpath
+0.5 0.5 moveto
+20.5 0.5 lineto
+20.5 29.2 lineto
+0.5 29.2 lineto
+closepath clip newpath
+
+/height 29.7039 def
+/width 20.9903 def
+
+width 0.5 mul height 0.5 mul translate
+
+0.02  setlinewidth
+
+/plus {
+5 dict begin
+
+	/depth exch def
+	/whichnot exch def
+	/length exch def
+	/ly exch def
+	/lx exch def
+
+	newpath
+	lx ly moveto
+	lx length add ly lineto
+	lx length 2 div add ly length 2 div sub moveto
+	lx length 2 div add ly length 2 div add lineto
+	stroke
+
+	depth 0 eq not {
+		whichnot 1 eq not {
+			lx ly length 2 div 4 depth 1 sub plus
+		} if
+		whichnot 2 eq not {
+			lx length 4 div add ly length 4 div add length 2 div 3 depth 1 sub plus
+		} if
+		whichnot 3 eq not {
+			lx length 4 div add ly length 4 div sub length 2 div 2 depth 1 sub plus
+		} if
+		whichnot 4 eq not {
+			lx length 2 div add ly length 2 div 1 depth 1 sub plus
+		} if
+
+	} if
+
+end
+} def
+
+/totallength 20 def
+/totaldepth 8 def
+
+totallength 2 totaldepth exp div 16 div setlinewidth
+
+-10 0 totallength 0 totaldepth plus
+
+
+showpage

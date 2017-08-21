@@ -1,0 +1,139 @@
+%!PS-3.0
+
+%%BoundingBox: 1 1 594 841
+%%DocumentMedia: A4 595 842 0 () ()
+%%EndComments
+%%BeginFeature: *PageSize A4
+<< /PageSize [595 842] >> setpagedevice
+%%EndFeature
+
+28.3464567 dup scale
+
+newpath
+0.5 0.5 moveto
+20.5 0.5 lineto
+20.5 29.2 lineto
+0.5 29.2 lineto
+closepath
+
+gsave
+0 setgray fill
+grestore
+
+clip
+
+/height 29.7039 def
+/width 20.9903 def
+
+width 0.5 mul height 0.5 mul translate
+
+/Times-Roman findfont
+1 scalefont
+setfont
+
+1 setgray
+
+0.02  setlinewidth
+
+%GIVEN THAT BASE = 2
+
+/tan {
+    /th exch def
+    th sin th cos div
+} def
+
+/acu_height 72 tan def
+/acu_length 1 72 cos div def
+
+/obt_height 36 tan def
+/obt_length 1 36 cos div def
+
+
+/draw_acu {
+1 dict begin
+
+    /depth exch def
+
+    depth 0 eq {
+        newpath
+        -1 0 moveto
+        1 0 lineto
+        0 acu_height lineto
+        closepath
+        fill
+
+    } {
+        gsave
+        -1 0 translate
+        2 acu_length div dup scale
+        -108 rotate
+        -1 0 translate
+        depth 1 sub draw_acu
+        grestore
+
+        gsave
+        1 0 translate
+        acu_length 2 div dup scale
+        108 rotate
+        1 0 translate
+        depth 1 sub draw_obt
+        grestore
+
+    } ifelse
+
+end
+} def
+
+/draw_obt {
+1 dict begin
+
+    /depth exch def
+
+%    newpath
+%    -1 0 moveto
+%    1 0 lineto
+%    0 obt_height lineto
+%    closepath
+%    1 0 0 setrgbcolor
+%    stroke 1 setgray
+
+    depth 0 eq not {
+        gsave
+        -1 0 translate
+        obt_length 2 div dup scale
+        1 0 translate
+        -1 1 scale
+        depth 1 sub draw_obt
+        grestore
+
+        gsave
+        1 0 translate
+        144 rotate
+        obt_length 2 div dup scale
+        1 0 translate
+        depth 1 sub draw_obt
+        grestore
+
+        gsave
+        0 obt_height translate
+        obt_length 2 div obt_length acu_length div mul dup scale
+        -144 rotate
+        1 0 translate
+        -1 1 scale
+        depth 1 sub draw_acu
+        grestore
+
+    } if
+
+end
+} def
+
+30 30 scale
+
+36 rotate
+
+10 draw_obt
+1 -1 scale
+10 draw_obt
+
+showpage

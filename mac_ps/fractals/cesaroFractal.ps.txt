@@ -1,0 +1,100 @@
+%!PS-3.0
+
+%%BoundingBox: 1 1 594 841
+%%DocumentMedia: A4 595 842 0 () ()
+%%EndComments
+%%BeginFeature: *PageSize A4
+<< /PageSize [595 842] >> setpagedevice
+%%EndFeature
+
+28.3464567 dup scale
+
+newpath
+0.5 0.5 moveto
+20.5 0.5 lineto
+20.5 29.2 lineto
+0.5 29.2 lineto
+closepath 
+gsave
+clip
+grestore
+0 setgray
+fill
+
+/height 29.7039 def
+/width 20.9903 def
+
+width 0.5 mul height 0.5 mul translate
+
+0.02  setlinewidth
+
+1 setgray
+
+/koch {
+6 dict begin
+
+	/rotation exch def
+	/lx exch def
+	/ly exch def
+	/length exch def
+	/depth exch def
+
+	/alt 3 sqrt 2 div length 3 div mul def
+
+	lx ly translate rotation rotate
+
+	newpath
+	length 3 div 0 moveto
+	length 2 div alt lineto
+	length 3 div 2 mul 0 lineto
+	closepath fill
+
+	newpath
+
+	depth 0 eq not {
+		gsave
+		depth 1 sub length 3 div 0 0 0 koch
+		grestore gsave
+		depth 1 sub length 3 div 0 0 length 3 div add 60 koch
+		grestore gsave
+		depth 1 sub length 3 div alt length 2 div 300 koch
+		grestore gsave
+		depth 1 sub length 3 div 0 2 length 3 div mul 0 koch
+		grestore
+	} if
+
+end
+} def
+
+newpath
+-8 8 moveto
+8 8 lineto
+8 -8 lineto
+-8 -8 lineto
+closepath 1 setgray fill
+
+/gd 4 def
+
+0 setgray
+
+/snowflake {
+
+	gsave
+	gd 16 -8 -8 exch 0 koch
+
+	grestore gsave
+	gd 16 -8 8 exch 270 koch
+
+	grestore gsave
+	gd 16 8 -8 exch 90 koch
+
+	grestore gsave
+	gd 16 8 8 exch 180 koch
+
+	grestore
+
+} def
+
+snowflake
+
+showpage

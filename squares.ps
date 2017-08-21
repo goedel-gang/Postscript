@@ -1,0 +1,79 @@
+%!PS-Adobe-3.0
+%%Orientation: Portrait
+%%DocumentMedia: s {screen_width} {screen_height} 80 ()
+%%Pages: 1
+%%EndComments
+%%EndProlog
+%%BeginSetup
+  << /PageSize [800 800] /Orientation 0 >> setpagedevice
+%%EndSetup
+%%Page: 1 1
+%%BeginPageSetup
+%%EndPageSetup
+
+/square {
+4 dict begin
+    /depth exch def
+    /n exch def
+
+    /rec 1 n div def
+
+    depth 0 ge {
+        newpath
+        rec rec moveto
+        rec 1 lineto
+        stroke
+
+        newpath
+        rec rec moveto
+        1 rec lineto
+        stroke
+
+        gsave
+        rec rec translate
+        1 rec sub dup scale
+        n depth 1 sub square
+        grestore
+
+        gsave
+        rec rec scale
+        n depth 1 sub square
+
+        1 1 n 1 sub {
+            /i exch def
+
+            newpath
+            i 0 moveto
+            i 1 lineto
+            stroke
+
+            newpath
+            0 i moveto
+            1 i lineto
+            stroke
+
+            gsave
+            i 0 translate
+            n depth 1 sub square
+            grestore
+
+            gsave
+            0 i translate
+            n depth 1 sub square
+            grestore
+        } for
+        grestore
+    } if
+
+end
+} def
+
+50 50 translate
+700 700 scale
+0.001 dup setlinewidth
+3 7 square
+
+showpage
+
+%%Trailer
+%%EOF

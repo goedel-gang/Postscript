@@ -1,0 +1,122 @@
+%!PS-3.0
+
+%%BoundingBox: 1 1 594 841
+%%DocumentMedia: A4 595 842 0 () ()
+%%EndComments
+%%BeginFeature: *PageSize A4
+<< /PageSize [595 842] >> setpagedevice
+%%EndFeature
+
+28.3464567 dup scale
+
+newpath
+0.5 0.5 moveto
+20.5 0.5 lineto
+20.5 29.2 lineto
+0.5 29.2 lineto
+closepath gsave
+clip grestore
+0 setgray fill
+
+/height 29.7039 def
+/width 20.9903 def
+
+width 0.5 mul height 0.5 mul translate
+
+0.02  setlinewidth
+
+/star {
+	/pl exch def
+	/cy exch def
+	/cx exch def
+
+	/alt pl 3 sqrt 2 div mul def
+
+	newpath
+	cx pl sub cy moveto
+	cx pl 1.5 mul sub cy alt add lineto
+	cx pl 2 div sub cy alt add lineto
+	cx cy alt 2 mul add lineto
+	cx pl 2 div add cy alt add lineto
+	cx pl 1.5 mul add cy alt add lineto
+	cx pl add cy lineto
+	cx pl 1.5 mul add cy alt sub lineto
+	cx pl 2 div add cy alt sub lineto
+	cx cy alt 2 mul sub lineto
+	cx pl 2 div sub cy alt sub lineto
+	cx pl 1.5 mul sub cy alt sub lineto
+	closepath fill
+} def
+
+/hexagon {
+6 dict begin
+
+	/depth exch def
+	/base exch def
+	/cy exch def
+	/cx exch def
+
+	/pl base 5 div def
+	/alt pl 3 sqrt 2 div mul def
+
+	cx cy base 3 div star
+
+	depth 0 eq not {
+		cx pl add cy alt 2 mul sub pl depth 1 sub hexagon
+		cx pl sub cy alt 2 mul sub pl depth 1 sub hexagon
+		cx pl 2 mul add cy pl depth 1 sub hexagon
+		cx pl 2 mul sub cy pl depth 1 sub hexagon
+		cx pl add cy alt 2 mul add pl depth 1 sub hexagon
+		cx pl sub cy alt 2 mul add pl depth 1 sub hexagon
+
+		cx cy alt 2 mul sub pl true depth 1 sub triangle
+		cx pl 2 mul add cy alt 2 mul add pl true depth 1 sub triangle
+		cx pl 2 mul sub cy alt 2 mul add pl true depth 1 sub triangle
+
+
+		cx cy alt 2 mul add pl false depth 1 sub triangle
+		cx pl 2 mul add cy alt 2 mul sub pl false depth 1 sub triangle
+		cx pl 2 mul sub cy alt 2 mul sub pl false depth 1 sub triangle
+	} if
+
+end
+} def
+
+/triangle {
+7 dict begin
+
+	/depth exch def
+	/pointsUp exch def
+	/base exch def
+	/ty exch def
+	/tx exch def
+
+	/pl base 3 div def
+	/alt pl 3 sqrt 2 div mul def
+
+	depth 0 eq not {
+
+		pointsUp {
+			tx ty alt 2 mul sub pl depth 1 sub hexagon
+
+			tx ty pl true depth 1 sub triangle
+			tx pl 1 mul sub ty alt 2 mul sub pl true depth 1 sub triangle
+			tx pl 1 mul add ty alt 2 mul sub pl true depth 1 sub triangle
+		} {
+			
+			tx ty alt 2 mul add pl depth 1 sub hexagon
+
+			tx ty pl false depth 1 sub triangle
+			tx pl 1 mul sub ty alt 2 mul add pl false depth 1 sub triangle
+			tx pl 1 mul add ty alt 2 mul add pl false depth 1 sub triangle
+		} ifelse
+	} if
+
+end
+} def
+
+1 setgray
+
+0 0 9 5 hexagon
+
+showpage
