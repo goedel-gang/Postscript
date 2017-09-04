@@ -19,64 +19,38 @@ closepath clip newpath
 /height 29.7039 def
 /width 20.9903 def
 
-
 width 0.5 mul height 0.5 mul translate
 
-/base 17 def
-/depth 1 def
+0.02  setlinewidth
 
-/v3h 0.75 sqrt def
-/base base 2 depth exp div def
+/petals 8 def
+/angle 360 petals div def
+/size 10 def
+/base size 2 exp 2 mul 4 size angle cos sub sqrt def
 
-base 2 div neg v3h base mul 3 div neg translate
-
-/sierp
+/petal
 {
-
 newpath
-
 0 0 moveto
-base 0 lineto
-base 2 div v3h base mul lineto closepath fill
-
+size neg 0 lineto
+gsave
+currentpoint translate 180 angle sub 2 mul rotate
+%base 2 div 0 rmoveto
+currentpoint base 2 div 0 180 arc
+grestore
+stroke
 } def
 
-
-0 1 depth
+0 1 petals
 {
-
 /x exch def
 
-/sierp
-{
+%petal
 
-sierp
+0 0 translate angle rotate
 
-gsave
-
-base 0 translate
-
-sierp
-
-grestore
-
-gsave
-
-base 2 div v3h base mul 2 div translate
-
-sierp
-
-grestore
-
-
-
-} def
-
-/base base 2 mul def
 
 } for
-
-sierp
 
 
 showpage

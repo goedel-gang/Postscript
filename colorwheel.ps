@@ -1,0 +1,38 @@
+%!PS-Adobe-3.0
+%%Orientation: Portrait
+%%DocumentMedia: s {screen_width} {screen_height} 80 ()
+%%Pages: 1
+%%EndComments
+%%EndProlog
+%%BeginSetup
+  << /PageSize [800 800] /Orientation 0 >> setpagedevice
+%%EndSetup
+%%Page: 1 1
+%%BeginPageSetup
+%%EndPageSetup
+
+/colorwheel {
+    /res exch def
+    /r exch def
+    /y exch def
+    /x exch def
+
+    0 res 360 {
+        /i exch def
+
+        i 360 div 255 dup sethsbcolor
+
+        newpath
+        x y moveto
+        x y r i dup res add arc
+        closepath fill
+    } for
+
+} def
+
+400 400 300 1 colorwheel
+
+showpage
+
+%%Trailer
+%%EOF

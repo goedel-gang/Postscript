@@ -16,7 +16,6 @@ newpath
 0.5 29.2 lineto
 closepath clip newpath
 
-
 /height 29.7039 def
 /width 20.9903 def
 
@@ -24,30 +23,23 @@ width 0.5 mul height 0.5 mul translate
 
 gsave
 
-2 2 scale
+/draw_graph {
+    /func exch def
+    /res exch def
+    /max_x exch def
+    /min_x exch def
 
-/quality 10 def
+    newpath
+    min_x func min_x moveto
 
-quality neg 1 quality
-{
+    min_x res max_x { 
+        /x exch def
+        x func x lineto
+    } for 
 
-/x exch def
+    stroke
+} def
 
-0 1 quality
-{
-
-/hd exch def
-
-/x x 1 hd div add def
-
-x x 360 mul sin moveto
-
-/x x 1 quality div add def
-
-x x 360 mul sin lineto
-} 
-for
-} 
-for
+-10 10 0.1 {sin} draw_graph
 
 showpage

@@ -16,6 +16,15 @@ newpath
 0.5 29.2 lineto
 closepath clip newpath
 
+0.0 setgray
+
+newpath
+0.5 0.5 moveto
+20.5 0.5 lineto
+20.5 29.2 lineto
+0.5 29.2 lineto
+closepath fill newpath
+
 /height 29.7039 def
 /width 20.9903 def
 
@@ -23,34 +32,14 @@ width 0.5 mul height 0.5 mul translate
 
 0.02  setlinewidth
 
-/petals 8 def
-/angle 360 petals div def
-/size 10 def
-/base size 2 exp 2 mul 4 size angle cos sub sqrt def
+1.0 setgray
 
-/petal
-{
 newpath
-0 0 moveto
-size neg 0 lineto
-gsave
-currentpoint translate 180 angle sub 2 mul rotate
-%base 2 div 0 rmoveto
-currentpoint base 2 div 0 180 arc
-grestore
-stroke
-} def
-
-0 1 petals
-{
-/x exch def
-
-%petal
-
-0 0 translate angle rotate
+-5 -5 moveto
 
 
-} for
+
+
 
 
 showpage
