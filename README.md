@@ -7,4 +7,4 @@ Some of my Postscript (the printer language) projects - some early, some less so
 ![screenshot](https://github.com/elterminad0r/Postscript/blob/master/svgs/star2.svg)
 
 
-A few more that I really wanted to add here, but have moved to a directory of SVGs (they should be viewable in browser): [svgs](https://github.com/elterminad0r/Postscript/blob/master/svgs/)
+A few more that I really wanted to add here, but have moved to a directory of SVGs (they should be viewable in browser): [svgs](https://github.com/elterminad0r/Postscript/blob/master/svgs/). There are also `pdf` files, but they don't seem to render very well. They're there because they're a necessary intermediate stage to my SVG generation method - I first use `ps2pdf`, and then `pdf2svg`. It seems to be working quite well so it's good enough for me. I've tested that all of these work with my version of GhostScript - you should also be able to open them in Preview on MacOS or some kind of illustrator/graphics program.
