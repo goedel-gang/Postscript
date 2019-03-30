@@ -1,0 +1,49 @@
+/chessboard {
+    /h exch def
+    /w exch def
+    1 1 w {
+        /x exch def
+        1 1 h {
+            /y exch def
+            x 1 and y 1 and xor 1 eq {
+                x y moveto
+                x y 1 add lineto
+                x 1 add y 1 add lineto
+                x 1 add y lineto
+                x y lineto
+            } if
+        } for
+    } for
+} def
+
+/sierpinski {
+1 dict begin
+    /depth exch def
+    newpath
+    0.5 0 moveto
+    0.75 3 sqrt 4 div lineto
+    0.25 3 sqrt 4 div lineto
+    closepath fill
+    depth 0 eq not {
+        gsave
+        0.5 dup scale
+        depth 1 sub sierpinski
+        1 0 translate
+        depth 1 sub sierpinski
+        -0.5 3 sqrt 2 div translate
+        depth 1 sub sierpinski
+        grestore
+    } if
+end
+} def
+
+0 setgray
+30 dup scale
+
+newpath 8 8 chessboard fill
+
+8 8 translate
+
+10 dup scale
+
+5 sierpinski
